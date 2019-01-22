@@ -1,27 +1,16 @@
 import { Injectable } from "@angular/core";
-import doc from "../pokemon.json";
+import { Recepten } from "./recepten.js";
+import { constructor, Int32 } from "mongodb";
+import { recepten } from "./recepten.1.js";
 
 @Injectable({
   providedIn: "root"
 })
-export class PkmnSearchService {
+export class ToevoegenRecepte {
   constructor() {}
-
-  searchPkmn(begin: Date, end: Date): [] {
-    console.log(doc);
-    let pkmnList: any = [];
-
-    for (let pkmn of doc.docs) {
-      let dateOwned = new Date(pkmn.owned);
-      if (dateOwned >= begin && dateOwned <= end) {
-        pkmnList.push(pkmn);
-      }
-    }
-    return pkmnList;
-    savePkmn(pkmnList: Pkmn[]){
-      for(let pkmn of pkmnList){
-        localStorage.setItem(pkmn.name, JSON.stringify(pkmn));;
-      }
+  ToevoegRecept(ReceptList: recepten[]) {
+    for (let recepten of ReceptList) {
+      localStorage.setItem(recepten.naam, JSON.stringify(recepten));
     }
   }
 }

@@ -1,33 +1,35 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import {PkmnSearchService} from './pkmn-search.service';
-import {PkmnSaveService} from './pkmn-save.service';
-import {Pkmn} from './Pkmn';
+import { Component } from "@angular/core";
+import { FormControl, FormGroup } from "@angular/forms";
+import { ToevoegenRecepte } from "./recepten.service";
+import { Recepten } from "./recepten";
+import { stringify } from "@angular/core/src/render3/util";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = 'Pkmn';
+  title = "Recepten";
   search: FormGroup;
-  pkmnList: Pkmn[];
+  pkmnList: Recepten[];
 
-    ngOnInit() {
-       this.search = new FormGroup({
-         start: new FormControl(''),
-         end: new FormControl('')
-       });
-   }
+  ngOnInit() {
+    this.search = new FormGroup({
+      start: new FormControl(""),
+      end: new FormControl("")
+    });
+  }
 
-   constructor(private PkmnSearchService: PkmnSearchService, private PkmnSaveService: PkmnSaveService) {}
+  constructor(private Toevoegenrecepte: ToevoegenRecepte) {}
 
-   getPkmnList() {
-       this.pkmnList = this.PkmnSearchService.searchPkmn(new Date(this.search.value.start),new Date(this.search.value.end));
-   }
+  getPkmnList() {
+    this.receptList = this.Toevoegenrecepte.ToevoegRecept(
+      new stringify(this.search.value.start)
+    );
+  }
 
-   savePkmn(){
-    this.PkmnSaveService.savePkmn(this.pkmnList);
-   }
+  savePkmn() {
+    this.Toevoegenrecepte.ToevoegRecept(this.pkmnList);
+  }
 }

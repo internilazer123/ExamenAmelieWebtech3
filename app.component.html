@@ -1,36 +1,25 @@
 <div style="text-align:center">
-  <h1>
-   Voeg hier uw recept toe aan de lijst!
-  </h1>
+  <h1>Voeg hier uw recept toe aan de lijst!</h1>
 
-  <form (ngSubmit)='getPkmnList()'>
-
-    <div class ='form-group' [formGroup]='search'>
-       <label for = 'naam'>Naam recept:</label>
-       <input type = 'text' formControlName='naam'>
-       <label for = 'aantal_caloriën'>Aantal caloriën:</label>
-       <input type = 'text' formControlName='aantal_caloriën'>
-       <label for = 'ingrediënten'>Ingrediënten van het recept</label>
-       <input type = 'text' formControleName=' ingrediënten' >
-       <label for = 'benodigde_tijd'>Benodigde tijd</label>
-       <input type = 'text' formControlName='benodigde_tijd'>
-
+  <form (ngSubmit)="ReceptenLijst()">
+    <div class="form-group" [formGroup]="search">
+      <label for="naam">Naam recept:</label>
+      <input type="text" formControlName="naam" /> <br />
+      <label for="aantal_caloriën">Aantal caloriën:</label>
+      <input type="text" formControlName="aantal_caloriën" /> <br />
+      <label for="ingrediënten">Ingrediënten van het recept</label>
+      <input type="text" formControleName=" ingrediënten" /> <br />
+      <label for="benodigde_tijd">Benodigde tijd</label>
+      <input type="text" formControlName="benodigde_tijd" />
     </div>
     <br />
-    <button type='submit' class='btn btn-success'>aanmaken</button>
-
-</form>
- <br /><br />
- <ul>
-   <li *ngFor="items van een recept;">
-     naam: {{item.naam}}
-     aantal_caloriën: {{item.aantal_caloriën}}
-     ingrediënten: {{item.ingrediënten}}
-     benodigde_tijd: {{item.benodigde_tijd}}
-   </li>
- </ul>
- <form (ngSubmit)='ReceptToevoegen()'>
-    <button type='submit' class='btn btn-success' (ngSubmit)='ReceptToevoegen()'>Voeg recept toe</button>
-</form>
+    <button
+      type="submit"
+      class="btn btn-success"
+      (ngSubmit)="ReceptToevoegen()"
+    >
+      aanmaken
+    </button>
+  </form>
 </div>
 <router-outlet></router-outlet>
