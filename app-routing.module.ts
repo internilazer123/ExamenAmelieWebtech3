@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { PkmnSearchService } from "./pkmn-search.service";
+import { PkmnSearchService } from "./recepten.service";
 
 const routes: Routes = [];
 

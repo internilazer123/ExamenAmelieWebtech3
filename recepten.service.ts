@@ -18,5 +18,10 @@ export class PkmnSearchService {
       }
     }
     return pkmnList;
+    savePkmn(pkmnList: Pkmn[]){
+      for(let pkmn of pkmnList){
+        localStorage.setItem(pkmn.name, JSON.stringify(pkmn));;
+      }
+    }
   }
 }
