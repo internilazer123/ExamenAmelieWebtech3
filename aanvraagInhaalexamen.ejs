@@ -8,8 +8,18 @@
   <body>
     <h1>Aanvraag ingeven inhaalexamen</h1>
     <br /><br />
-    <ul class="aanvraag">
-      <span><b><Naam: ></b></span>
+    <ul class="inschrijving">
+      <% for(var i=0; i < inschrijvingen.length; i++) {%>
+      <li class="inschrijving">
+        <span><b>Naam: ></b><%= inschrijvingen[i].Naam %></span><br />
+        <span><b>Examen: ></b><%= inschrijvingen[i].Examen %></span><br />
+        <span><b>Reden: ></b><%= inschrijvingen[i].Reden %></span><br />
+        <span><b>Datum: ></b><%= inschrijvingen[i].Datum %></span><br />
+      </li>
+      <% } %>
     </ul>
+    <br />
+
+    <a href="/add"> Aanvraag indienen</a>
   </body>
 </html>
