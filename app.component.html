@@ -1,0 +1,32 @@
+<div style="text-align:center">
+  <h1>
+   Vind je Pokemon!
+  </h1>
+
+  <form (ngSubmit)='getPkmnList()'>
+
+    <div class ='form-group' [formGroup]='search'>
+       <label for = 'start'>BeginDatum:</label>
+       <input type = 'text' formControlName='start'>
+       <label for = 'end'>EindDatum:</label>
+       <input type = 'text' formControlName='end'>
+    </div>
+    <br />
+    <button type='submit' class='btn btn-success'>Zoek</button>
+
+</form>
+ <br /><br />
+ <ul>
+   <li *ngFor="let item of pkmnList;">
+     name: {{item.name}}
+     type: {{item.type}}
+     trainer: {{item.trainer}}
+     gender: {{item.gender}}
+     owned: {{item.owned}}
+   </li>
+ </ul>
+ <form (ngSubmit)='savePkmn()'>
+    <button type='submit' class='btn btn-success' (ngSubmit)='savePkmn()'>Sla Op</button>
+</form>
+</div>
+<router-outlet></router-outlet>
