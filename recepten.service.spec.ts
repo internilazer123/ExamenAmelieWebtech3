@@ -1,6 +1,6 @@
 import { TestBed } from "@angular/core/testing";
 
-import { PkmnSearchService } from "./pkmn-search.service";
+import { PkmnSearchService } from "./recepten.service";
 
 describe("PkmnSearchService", () => {
   beforeEach(() => TestBed.configureTestingModule({}));

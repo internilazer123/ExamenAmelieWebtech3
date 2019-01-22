@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./AppRoutingModule";
-import { AppComponent } from "./app.component";
+import { AppComponent } from "./AppComponent";
 import { ToevoegenRecepte } from "./recepten.service";
 
 @NgModule({
